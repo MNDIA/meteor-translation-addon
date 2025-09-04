@@ -30,5 +30,5 @@ The module may not support your game language. Set the language to a supported l
 
 ## 鸣谢列表
 [MeteorDevelopment](https://github.com/MeteorDevelopment) 的流星端插件模板
-
 [顶针](https://github.com/dingzhen-vape) 为本插件提供完整的翻译文件
+[E0x72-24](https://github.com/E0x72-24) 为本项目提供ICON以及优化Readme文档
