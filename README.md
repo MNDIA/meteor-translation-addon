@@ -1,14 +1,10 @@
-### Meteor Translation Addon 
-## 流星翻译插件
-~~Warning: This project is under development and translations may not be complete~~
+<div align="center">
+<img src="/assets/logo.png" alt="meteor-translation-addon" width="225px" />
 
-~~警告: 此项目处于开发阶段 对内容的翻译可能不全~~
+<h1>Meteor Translation Addon</h1>
+<h2>流星翻译插件</h2>
+</div>
 
-~~目前正在进行简体中文的翻译工作~~
-~~如果你想为流星端的中文 翻译做出自己的贡献请点击 https://zh.crowdin.com/project/meteortransaddon/zh-CN~~
-
-~~The module MeteorClient is translated~~
-~~The language you translate depends on the language you choose for your game~~
 
 本模组翻译已完成
 感谢 [顶针](https://github.com/dingzhen-vape) 提供的lang文件
@@ -29,7 +25,6 @@ The module may not support your game language. Set the language to a supported l
 模块可能不支持你的游戏语言 将语言设置为支持的语言 比如中文
 
 ## 为什么启用翻译过后功能名称一片空白
-~~因为流星端的字体渲染引擎只能渲染英文字体 你可以在config页面中关闭CustomFont 或者使用我的修复版的MeteorClient~~
 
 0.2版本已修复流星字体渲染引擎的问题 如果模块名称无法正常显示 请将流星的自定义字体切换为任意支持中文的字体
 
