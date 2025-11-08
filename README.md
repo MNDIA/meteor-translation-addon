@@ -24,7 +24,7 @@ The module may not support your game language. Set the language to a supported l
 
 模块可能不支持你的游戏语言 将语言设置为支持的语言 比如中文
 
-## 为什么启用翻译过后功能名称一片空白
+## 为什么启用翻译过后功能名称一片空白/流星端字体无法正常渲染
 
 0.2版本已修复流星字体渲染引擎的问题 如果模块名称无法正常显示 请将流星的自定义字体切换为任意支持中文的字体
 
