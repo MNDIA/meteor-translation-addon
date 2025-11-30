@@ -1,5 +1,5 @@
 plugins {
-    id "fabric-loom" version "1.11-SNAPSHOT"
+    id 'fabric-loom' version "${loom_version}"
 }
 
 base {
@@ -17,9 +17,6 @@ repositories {
         name = "Meteor Dev Snapshots"
         url = "https://maven.meteordev.org/snapshots"
     }
-    //临时使用流星CI构建
-//    flatDir { dirs 'D://hack/SeijaLib' }
-//    maven { url 'file:///D://hack/SeijaLib' }
 }
 
 dependencies {
@@ -27,10 +24,6 @@ dependencies {
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
     mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
-
-    // Meteor
-    //临时使用流星CI构建
-//    modImplementation files('D:\\hack\\SeijaLib\\meteor-client-1.21.6-local.jar')
 
     modImplementation "meteordevelopment:meteor-client:${project.minecraft_version}-SNAPSHOT"
 }
@@ -44,12 +37,6 @@ tasks {
 
         filesMatching("fabric.mod.json") {
             expand(propertyMap)
-        }
-    }
-
-    jar {
-        from("LICENSE") {
-            rename { "${it}_${project.base.archivesBaseName}" }
         }
     }
 
