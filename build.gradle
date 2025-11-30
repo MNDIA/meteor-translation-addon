@@ -2,10 +2,15 @@ plugins {
     id 'fabric-loom' version "${loom_version}"
 }
 
+version = project.mod_version
+group = project.maven_group
+
 base {
-    archivesBaseName = project.archives_base_name
-    version = project.mod_version
-    group = project.maven_group
+    archivesName = project.archives_base_name
+}
+
+java {
+    sourceCompatibility = targetCompatibility = JavaVersion.VERSION_25
 }
 
 repositories {
@@ -28,25 +33,16 @@ dependencies {
     modImplementation "meteordevelopment:meteor-client:${project.minecraft_version}-SNAPSHOT"
 }
 
-tasks {
-    processResources {
-        def propertyMap = [
-            "version"   : project.version,
-            "mc_version": project.minecraft_version,
-        ]
-
-        filesMatching("fabric.mod.json") {
-            expand(propertyMap)
-        }
-    }
-
-    java {
-        sourceCompatibility = JavaVersion.VERSION_21
-        targetCompatibility = JavaVersion.VERSION_21
-    }
-
-    tasks.withType(JavaCompile).configureEach {
-        it.options.encoding = "UTF-8"
-        it.options.release = 21
+processResources {
+    def propertyMap = [
+        "version"   : project.version,
+        "mc_version": project.minecraft_version,
+    ]
+    filesMatching("fabric.mod.json") {
+        expand(propertyMap)
     }
 }
+tasks.withType(JavaCompile).configureEach {
+    it.options.encoding = "UTF-8"
+}
+
