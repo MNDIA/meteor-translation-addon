@@ -76,8 +76,6 @@ public class Translation extends Module {
             tran();
         }
 
-        ChatUtils.warning("流星翻译插件是开源的项目且完全免费 作者不会以任何形式对此插件进行收费");
-        ChatUtils.warning("如果你购买了此插件 则说明你被骗了");
     }
 
 
