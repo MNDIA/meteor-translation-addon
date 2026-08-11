@@ -14,10 +14,7 @@ import meteordevelopment.meteorclient.gui.widgets.containers.WTable;
 import meteordevelopment.meteorclient.gui.widgets.containers.WVerticalList;
 import meteordevelopment.meteorclient.gui.widgets.input.WTextBox;
 import meteordevelopment.meteorclient.gui.widgets.pressable.WCheckbox;
-import meteordevelopment.meteorclient.settings.EntityTypeListSetting;
 import meteordevelopment.meteorclient.utils.Utils;
-import meteordevelopment.meteorclient.utils.misc.Names;
-import net.minecraft.util.Tuple;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -143,15 +140,16 @@ public class StringSelectScreen extends WindowScreen {
         if (filterText.isEmpty()) {
             setting.validValues.forEach(stringForeach);
         } else {
-            List<Tuple<String, Integer>> entities = new ArrayList<>();
+            record DiffByString(String value, int diff) {}
+            List<DiffByString> entities = new ArrayList<>();
             setting.validValues.forEach(str -> {
                 int words = Utils.searchInWords(str, filterText);
                 int diff = Utils.searchLevenshteinDefault(str, filterText, false);
 
-                if (words > 0 || diff < str.length() / 2) entities.add(new Tuple<>(str, -diff));
+                if (words > 0 || diff < str.length() / 2) entities.add(new DiffByString(str, diff));
             });
-            entities.sort(Comparator.comparingInt(value -> -value.getB()));
-            for (Tuple<String, Integer> pair : entities) stringForeach.accept(pair.getA());
+            entities.sort(Comparator.comparingInt(DiffByString::diff));
+            for (var pair : entities) stringForeach.accept(pair.value());
         }
 
         if (stringsT.cells.isEmpty()) list.cells.remove(stringsCell);
